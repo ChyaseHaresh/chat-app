@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Message;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,26 +14,34 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return view('admin.notices');
+        $result['data']=Staff::all();
+
+        return view('admin.staff', $result);
+
+    }
+    public function add_staff()
+    {
+        return view('admin.add_staff');
 
     }
 
-    public function send(Request $request)
+    public function add_staff_process(Request $request)
     {
-
         $request->validate([
-            'category_name'=>'required',
-        ]); 
-        $model=new Category();
+            'name'=>'required',
+            'designation'=>'required',
+        ]);
 
-        $model->category_name=$request->post('category_name');
+        $model=new Staff();
+
+        $model->name=$request->post('name');
+        $model->designation=$request->post('designation');
 
         $model->save();
-        $request->session()->flash('message',"Category Added Successfully");
-        return redirect('admin/category');
-        return view('admin.notices');
-
+        $request->session()->flash('message',"Staff Added Successfully");
+        return redirect('admin/staff');
     }
+
 
 
     /**
@@ -60,10 +68,10 @@ class MessageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Message  $message
+     * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show(Staff $staff)
     {
         //
     }
@@ -71,10 +79,10 @@ class MessageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Message  $message
+     * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function edit(Message $message)
+    public function edit(Staff $staff)
     {
         //
     }
@@ -83,10 +91,10 @@ class MessageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Message  $message
+     * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Message $message)
+    public function update(Request $request, Staff $staff)
     {
         //
     }
@@ -94,10 +102,10 @@ class MessageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Message  $message
+     * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(Staff $staff)
     {
         //
     }

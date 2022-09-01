@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -43,7 +44,9 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $result['data']=Book::all();
+
+        return view('admin.dashboard', $result);
     }
     /**
      * Show the form for creating a new resource.
