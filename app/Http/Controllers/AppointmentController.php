@@ -16,8 +16,10 @@ class AppointmentController extends Controller
     public function index()
     {
         $result['data']=Staff::all();
+    $result2['data2']=Appointment::all();
 
-        return view('admin.appointment', $result);
+
+        return view('admin.appointment', $result, $result2);
 
     }
     public function add_appointment_process(Request $request)
