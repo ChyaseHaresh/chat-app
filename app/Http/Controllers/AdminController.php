@@ -33,7 +33,7 @@ class AdminController extends Controller
         $result=Admin::where(['username'=>$username,'password'=>$password])->get();
         if($result){
                 Session::put('ADMIN_LOGIN',true);
-                Session::put('ADMINS',"user");
+                Session::put('ADMINS',$result->username);
                 // $request->session()->put('ADMIN_ID',$result->id);
                 return redirect('admin/dashboard');
         }else{
