@@ -20,11 +20,11 @@
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div class="form-floating m-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="username">
+                <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
                 <label for="floatingInput"> Username</label>
             </div>
             <div class="form-floating m-2">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
 

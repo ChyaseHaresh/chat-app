@@ -14,7 +14,7 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($id='')
     {
         $arr['data']=Appointment::where(['id'=>$id])->get();
         return view('users.book', $arr);

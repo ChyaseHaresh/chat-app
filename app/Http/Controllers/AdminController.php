@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Database\Eloquent\Collection;
 
 
 class AdminController extends Controller
@@ -44,7 +45,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        $result['data']=Book::all();
+        $result['data']=Book::orderBy('created_at','desc')->get();
 
         return view('admin.dashboard', $result);
     }

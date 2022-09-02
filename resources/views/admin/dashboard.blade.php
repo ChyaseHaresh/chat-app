@@ -1,5 +1,5 @@
 @extends('admin/navSide')
-@section('page_title','Dashboard')
+@section('page_title', 'Dashboard')
 
 @section('container')
     <div class="row">
@@ -9,35 +9,39 @@
 
         <table class="table mt-3">
             <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">User</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Staff</th>
-                <th scope="col">Time Slot</th>
-                <th scope="col">Action</th>
-              </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Staff</th>
+                    <th scope="col">Time Slot</th>
+                    <th scope="col">Action</th>
+                </tr>
             </thead>
             <tbody>
                 @foreach ($data as $list)
+                    <tr>
+                        <th scope="row">{{ $list->id }}</th>
+                        <td>{{ $list->fname }} {{ $list->lname }}</td>
+                        <td>{{ $list->email }}</td>
+                        <td>{{ $list->phone }}</td>
+                        <td>{{ $list->staffs }}</td>
+                        <td>{{ $list->slot }}</td>
+                        <td>
 
-              <tr>
-                <th scope="row">{{ $list->id }}</th>
-                <td>{{ $list->fname }} {{ $list->lname }}</td>
-                <td>{{ $list->email }}</td>
-                <td>{{ $list->phone }}</td>
-                <td>{{ $list->staffs }}</td>
-                <td>{{ $list->slot }}</td>
-                <td>
+
+                            <a href="{{ url('adminss/delete/') }}/{{ $list->id }}"><button type="button"
+                                    class="btn btn-success">Active</button></a>
 
 
-                <a href="{{ url('adminss/delete/') }}/{{ $list->id }}"><button type="button"
-                        class="btn btn-danger">Delete</button></a>
-                </td>
-              </tr>
-              @endforeach
+                            <a href="{{ url('adminss/delete/') }}/{{ $list->id }}"><button type="button"
+                                    class="btn btn-danger">Deactive</button></a>
+                        </td>
+                    </tr>
+                @endforeach
 
             </tbody>
-          </table>
+        </table>
     @endsection
+    <script src="resources\js\changeStatus.js"></script>
