@@ -21,6 +21,8 @@
             </thead>
             <tbody>
                 @foreach ($data as $list)
+                <tr></tr>
+
                     <tr>
                         <th scope="row">{{ $list->id }}</th>
                         <td>{{ $list->fname }} {{ $list->lname }}</td>
@@ -29,14 +31,13 @@
                         <td>{{ $list->staffs }}</td>
                         <td>{{ $list->slot }}</td>
                         <td>
-
-
-                            <a href="{{ url('adminss/delete/') }}/{{ $list->id }}"><button type="button"
-                                    class="btn btn-success">Active</button></a>
-
-
-                            <a href="{{ url('adminss/delete/') }}/{{ $list->id }}"><button type="button"
-                                    class="btn btn-danger">Deactive</button></a>
+                            @if ($list->status == 1)
+                            <a href="{{ url('admin/dashboard/status/') }}/{{ 0 }}/{{ $list->id }}"><button
+                                type="button" class="btn btn-success">Active</button></a>
+                            @else
+                                <a href="{{ url('admin/dashboard/status/') }}/{{ 1 }}/{{ $list->id }}"><button
+                                        type="button" class="btn btn-danger">Deactive</button></a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
@@ -44,4 +45,4 @@
             </tbody>
         </table>
     @endsection
-    <script src="resources\js\changeStatus.js"></script>
+    <script></script>

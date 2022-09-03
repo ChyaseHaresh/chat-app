@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 Route::get('/book/{id}',[BookController::class,'index']);
 
+Route::get('/admin/dashboard/status/{status}/{id}',[AppointmentController::class,'edit']);
 
 Route::get('admin',[AdminController::class,'index']);
 Route::get('admin/dashboard',[AdminController::class,'dashboard']);

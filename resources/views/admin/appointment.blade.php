@@ -29,20 +29,20 @@
                     </select>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Start Date</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1" name="sdate" min="{{ date('Y-m-d') }}">
+                        <input type="date" class="form-control sdate" id="exampleInputPassword1" name="sdate"  min="{{ date('Y-m-d') }}">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Start time</label>
-                        <input type="time" class="form-control" id="exampleInputPassword1" name="stime" min="{{ date('H:i') }}">
+                        <input type="time" class="form-control" id="exampleInputPassword1" name="stime" id="stime" min="{{ date('H:i') }}">
                     </div>
                     <hr class="my-4">
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">End Date</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1" name="edate">
+                        <input type="date" class="form-control edate" id="exampleInputPassword1" name="edate">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">End time</label>
-                        <input type="time" class="form-control" id="exampleInputPassword1" name="etime">
+                        <input type="time" class="form-control" id="exampleInputPassword1" id="etime" name="etime">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Assign</button>
@@ -78,3 +78,5 @@
 
 
     @endsection
+
+

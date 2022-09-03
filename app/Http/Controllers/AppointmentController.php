@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Staff;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -82,9 +83,13 @@ class AppointmentController extends Controller
      * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appointment $appointment)
+    public function edit( $status, $id)
     {
-        //
+        $model=Book::find($id);
+        $model->status=$status;
+        $model->save();
+        // $request->session()->flash('message','Category status updated');
+        return redirect('admin/dashboard');
     }
 
     /**
